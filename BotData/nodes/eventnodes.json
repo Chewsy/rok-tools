@@ -1,0 +1,138 @@
+{
+  "nodes": [
+    {
+      "type": "event",
+      "name": "User Joins Server",
+      "guid": "49ebbc23-2903-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "newuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "7bb75fd0-2362-4e26-9014-59b99d399d44"
+          ]
+        }
+      ],
+      "x": 99,
+      "y": 100,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "Any Message",
+      "guid": "49ebbc23-2903-4f05-ab69-bc9ecb4f8888",
+      "variables": {
+        "user": "msguser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "f2c08192-262c-43f5-b9ad-a6b171c91039"
+          ]
+        }
+      ],
+      "x": 97,
+      "y": 497,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "User Kicked",
+      "guid": "69ebbc23-2903-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "kickuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 99,
+      "y": 250,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "User Banned",
+      "guid": "77ebbc23-2003-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "banuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 93,
+      "y": 366,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "Welcome message",
+      "guid": "7bb75fd0-2362-4e26-9014-59b99d399d44",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "49ebbc23-2903-4f05-ab69-bc9ecb4f067e"
+        }
+      ],
+      "x": 355,
+      "y": 86,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "general",
+        "Welcome to the server, %%newuser%%"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "increment xp",
+      "guid": "f2c08192-262c-43f5-b9ad-a6b171c91039",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "49ebbc23-2903-4f05-ab69-bc9ecb4f8888"
+        }
+      ],
+      "x": 349,
+      "y": 497,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "%%msguser%%",
+        "xp",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    }
+  ]
+}
